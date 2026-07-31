@@ -14,4 +14,4 @@ Output Requirements:
 1.	The Strategy: A brief 2-3 sentence summary of the study method I should use for this specific timeframe.
 2.	The Schedule: A table breaking down my exact study plan (Day-by-Day if under a month; Week-by-Week if over a month). Include the specific topic to cover, the time block, and the action (e.g., "Read chapter," "Create mind map," "Do 20 practice questions").
 3.	The Reality Check: Point out where my available hours might not be enough for the topic list, and tell me exactly what to cut if I run out of time.
-        Build a website for this for doing all the actions
+Build a website for this for doing all the actions
