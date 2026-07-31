@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Schedule Architect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="dashboard-header">
+        <div class="brand">
+            <div class="brand-icon">🗓️</div>
+            <div class="brand-text">
+                <h1>Schedule Architect</h1>
+                <p>Topological graph-based study planner</p>
+            </div>
+        </div>
+        <div class="badge">Engine v2.5</div>
+    </div>
+
+    <div class="card">
+        <h2 class="card-title">⚙️ Configuration Parameters</h2>
+
+        <div class="grid-2">
+            <div class="form-group">
+                <label>Days Remaining Until Exam</label>
+                <input type="number" id="daysRemaining" placeholder="e.g., 14" min="1">
+            </div>
+            <div class="form-group">
+                <label>Average Daily Study Hours</label>
+                <input type="number" id="dailyHours" placeholder="e.g., 4" min="1">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Full Topic List (Comma separated)</label>
+            <textarea id="topics" placeholder="e.g., Linked Lists, Array Sorting, Semiconductor Physics, Law of Mass Action"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Weak Areas (Comma separated)</label>
+            <input type="text" id="weakAreas" placeholder="e.g., Array Sorting, Law of Mass Action">
+        </div>
+
+        <div class="form-group">
+            <label>Prerequisites / Dependencies (Optional)</label>
+            <p class="hint-text">
+                Format: <em>Topic A -> Topic B</em>. You can chain them (<em>A -> B -> C</em>) using commas or new lines.
+            </p>
+            <textarea id="dependenciesInput" placeholder="e.g., Variables -> Loops -> Arrays&#10;HTML > CSS > JavaScript"></textarea>
+        </div>
+
+        <div class="button-group">
+            <button class="btn-secondary" onclick="resetSchedule()">🔄 Reset All</button>
+            <button class="btn-primary" onclick="generateSchedule()">⚡ Generate Optimized Roadmap</button>
+        </div>
+    </div>
+
+    <div id="results" class="card">
+        <h2 class="card-title">🚀 Your Tailored Roadmap</h2>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="value" id="statDays">-</div>
+                <div class="label">Timeline Days</div>
+            </div>
+            <div class="stat-card">
+                <div class="value" id="statHours">-</div>
+                <div class="label">Total Study Hours</div>
+            </div>
+            <div class="stat-card">
+                <div class="value" id="statTopics">-</div>
+                <div class="label">Topics Tracked</div>
+            </div>
+        </div>
+
+        <div id="strategy" class="strategy-box">
+            <span>💡</span>
+            <div>Topics marked with 🔥 are high-priority weak areas. The engine automatically sequences unlocked milestones based on strict topological weights.</div>
+        </div>
+        
+        <div class="table-container">
+            <table id="scheduleTable">
+                <thead>
+                    <tr>
+                        <th>Day Schedule</th>
+                        <th>Assigned Focus Topics</th>
+                        <th>Recommended Strategy</th>
+                    </tr>
+                </thead>
+                <tbody id="scheduleBody"></tbody>
+            </table>
+        </div>
+
+        <div id="realityCheck" class="reality-box" style="margin-top: 2rem;"></div>
+    </div>
+    
+    <script src="script.js">
+        
+    </script>
+</body>
+</html>
